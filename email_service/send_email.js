@@ -7,12 +7,12 @@ function send(req, res, transport, mailOptions) {
     }
 
     transport.sendMail(mailOptions, (error, info) => {
-        if (info) {
-            console.log(info);
-            res.json({ "message": "email sent" }).status(200);
-        } else {
+        if (error) {
             console.log(error);
-            res.json({ "message": "email failed to send" }).status(500);
+            res.status(500).json({ "message": "email failed to send" });
+        } else {
+            console.log(info);
+            res.status(200).json({ "message": "email sent" });
         }
     });
 }
