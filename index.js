@@ -26,7 +26,10 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const welcomeRouter = require('./routes/welcome');
 const confirmationRouter = require('./routes/confirmation');
+
+app.use('/welcome', welcomeRouter);
 app.use('/confirmation', confirmationRouter);
 
 app.listen(port, () => console.log(`nodemailer listening on port ${port}`));
