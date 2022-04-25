@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const emailService = require('../email_transport');
+const transport = require('../transport');
 
 router.post('/', async (req, res) => {
     let mailOptions = {};
@@ -18,14 +18,15 @@ router.post('/', async (req, res) => {
         res.json({ "message": "invalid request" }).status(500);
     }
 
-    emailService.sendEmail(mailOptions, (error, info) => {
-        if (error) {
-            res.json({ "message": "email failed to send" }).status(500);
-        } else {
+    transport.sendMail(mailOptions, (error, info) => {
+        if (info) {
             console.log(info);
-            res.json({ "message": "success" }).status(200);
+            res.json({ "message": "email sent" }).status(200);
+        } else {
+            console.log(error);
+            res.json({ "message": "email failed to send" }).status(500);
         }
-    });
+    })
 });
 
 module.exports = router;

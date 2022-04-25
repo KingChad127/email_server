@@ -1,0 +1,12 @@
+POST http://localhost:3000/confirmation
+Content-Type: application/json
+
+{
+    "from": "kingchad127@gmail.com",
+    "to": "abhinav.chadaga@utexas.edu",
+    "subject": "Test message",
+    "text": "Test Message"
+}
+
+###
+
