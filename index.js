@@ -32,4 +32,8 @@ const confirmationRouter = require('./routes/confirmation');
 app.use('/welcome', welcomeRouter);
 app.use('/confirmation', confirmationRouter);
 
+app.get('/', (req, res) => {
+    res.send("TukTuk Email Server");
+});
+
 app.listen(port, () => console.log(`nodemailer listening on port ${port}`));

@@ -1,8 +1,8 @@
 {
   "name": "email_server",
   "version": "1.0.0",
-  "description": "Send a confirmation email when a user books a ride",
-  "main": "main.js",
+  "description": "API for sending automated emails to customers",
+  "main": "index.js",
   "scripts": {
     "test": "node index.js"
   },
