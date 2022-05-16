@@ -1,0 +1,1 @@
+docker run -p 3000:3000 -e MAIL_USERNAME=kingchad127@gmail.com -e MAIL_PASSWORD=tmduxzfwcxfzcexb abhinavchadaga/tuktuk_email_server:latest
